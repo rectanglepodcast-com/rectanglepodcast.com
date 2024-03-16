@@ -20,7 +20,7 @@ const { dependencies = {}, devDependencies = {} } = pkg as any as {
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
      build: {
-      // minify: !isDev, // !DEBUG,
+      minify: false, // !DEBUG,
       // assetsDir: './@assets',
       rollupOptions: {
         output: {
