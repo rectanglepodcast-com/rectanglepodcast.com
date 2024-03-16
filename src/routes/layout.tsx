@@ -1,6 +1,6 @@
-import { serverComponent$ } from "#_experiments/fake-server-component";
+// import { serverComponent$ } from "#_experiments/fake-server-component";
 
-import { Slot } from "@builder.io/qwik";
+import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
 import Footer from "#components/Footer";
@@ -17,7 +17,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
-export default serverComponent$(async () => {
+export default component$(() => {
   return (
     <>
       {/* Header */}
