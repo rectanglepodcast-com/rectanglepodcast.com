@@ -22,6 +22,9 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   rules: {
+    "qwik/no-use-visible-task": ["off"],
+    // 'qwik/no-use-visible-task': ['warn'],
+    "qwik/valid-lexical-scope": ["warn"],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-inferrable-types": "off",
@@ -35,7 +38,14 @@ module.exports = {
     "prefer-spread": "off",
     "no-case-declarations": "off",
     "no-console": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        argsIgnorePattern: "^_|event|target|props|index|i|acc",
+        varsIgnorePattern: "_[iI]gnored|^\\$$",
+      },
+    ],
+    // '@typescript-eslint/no-unused-vars': ['error'],
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/no-unnecessary-condition": "warn",
   },

@@ -1,30 +1,39 @@
 {
-  "name": "my-qwik-empty-starter",
-  "description": "App with Routing built-in ready to create your app",
+  "name": "rectanglepodcast",
+  "description": "Rectangle Podcast about frontend",
   "engines": {
-    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+    "node": "^20.6.0 || >=21.0.0"
   },
-  "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
   "private": true,
   "trustedDependencies": [
     "sharp"
   ],
-  "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
   "type": "module",
   "scripts": {
+    "------- NODE VERSION -------": "",
+    "preinstall": "node -e \"if (parseInt(process.versions.node.split('.')[0]) < 20) { console.error('Node.js version 20 or higher is required.'); process.exit(1); }\"",
+    "predev": "node -e \"if (parseInt(process.versions.node.split('.')[0]) < 20) { console.error('Node.js version 20 or higher is required.'); process.exit(1); }\"",
+    "prestart": "node -e \"if (parseInt(process.versions.node.split('.')[0]) < 20) { console.error('Node.js version 20 or higher is required.'); process.exit(1); }\"",
+    "------- BUILD SCRIPTS -------": "",
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "------- DEVELOPMENT SCRIPTS -------": "",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "------- DEPLOYMENT SCRIPTS -------": "",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "------- FORMATTING & LINTING -------": "",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
+    "------- PREVIEW  -------": "",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "------- MISC SCRIPTS -------": "",
+    "qwik": "node --env-file=.env ./node_modules/.bin/qwik",
+    "-----------------------------": ""
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.5.1",
@@ -33,9 +42,13 @@
     "@types/node": "^20.11.24",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
+    "autoprefixer": "^10.4.14",
     "eslint": "^8.57.0",
     "eslint-plugin-qwik": "^1.5.1",
+    "postcss": "^8.4.31",
     "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "3.3.3",
     "typescript": "5.3.3",
     "undici": "*",
     "vite": "^5.1.4",
