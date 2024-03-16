@@ -1,4 +1,5 @@
-import { component$, HTMLAttributes, Signal, Slot } from "@builder.io/qwik";
+import type { HTMLAttributes, Signal } from "@builder.io/qwik";
+import { component$, Slot } from "@builder.io/qwik";
 import {
   Link as QwikLink,
   // useLocation
@@ -9,7 +10,6 @@ import { twMerge } from "tailwind-merge";
 type LinkProps = {
   key?: string | number | null;
   ref?: Signal<HTMLAnchorElement | undefined>;
-  path?: string;
   class?: string;
   href?: string;
   server?: boolean;
@@ -18,9 +18,9 @@ type LinkProps = {
 } & HTMLAttributes<HTMLAnchorElement>;
 
 export const Link = component$<LinkProps>(
-  ({ path, base, ref, server = true, class: className = "", ...props }) => {
+  ({ base, ref, server = true, class: className = "", ...props }) => {
     // const baseUrl = "/"; //baseUrl(base);
-    const baseUrl = undefined;
+    const baseUrl = base;
     // const location = useLocation();
 
     const Tag = server ? "a" : QwikLink;

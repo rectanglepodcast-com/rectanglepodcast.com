@@ -1,7 +1,7 @@
+import type { JSXOutput } from "@builder.io/qwik";
 import {
   // component$,
   componentQrl,
-  JSXOutput,
   // useSignal,
   // useTask$,
 } from "@builder.io/qwik";
@@ -11,7 +11,9 @@ import {
 export const cache = new Map<string, string>();
 
 // let count = 0;
-export function serverComponentQrl(qrl: (props?: any) => Promise<JSXOutput>) {
+export function serverComponentQrl(
+  qrl: (props?: any) => Promise<JSXOutput> | JSXOutput,
+) {
   // @ts-ignore
   return (...args) => {
     // console.log("serverComponentQrl", ++count, args, qrl);
