@@ -6,7 +6,7 @@ export default {
   ],
   // This plugin's options
   importOrder: [
-    "^#server/server-only$",
+    "^#_server/server-only$",
     "^#./server-only$",
     "^#_experiments/(.*)$",
     "<BUILTIN_MODULES>",
