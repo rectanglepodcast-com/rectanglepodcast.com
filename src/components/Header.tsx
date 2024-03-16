@@ -1,17 +1,13 @@
 import { component$ } from "@builder.io/qwik";
 
+import Logo from "#assets/images/Logo";
+
 export default component$(() => {
   return (
     <div class="relative bg-gray-800 text-white">
       {/* Logo Placement */}
       <div class="py-4 text-center">
-        <img
-          width="150"
-          height="150"
-          class="mx-auto inline-block h-20 w-20 rounded-full object-cover"
-          src="https://via.placeholder.com/150"
-          alt="Rectangle Podcast Logo"
-        />
+        <Logo />
       </div>
       <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:flex lg:items-center lg:justify-between lg:px-8 lg:py-16">
         <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
