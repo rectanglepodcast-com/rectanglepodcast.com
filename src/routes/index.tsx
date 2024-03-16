@@ -3,6 +3,8 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 
 import { Link } from "#components/Link";
 
+import EpisodePlaceholder from "#assets/images/EpisodePlaceholder";
+
 export const head: DocumentHead = {
   title: "Rectangle Podcast",
   meta: [
@@ -17,10 +19,10 @@ export default component$(() => {
   const episodes = [
     {
       link: "https://x.com/PatrickJS__/status/1754033753259958276?s=20",
-      image: "https://via.placeholder.com/400x250",
-      imageWidth: 400,
-      imageHeight: 250,
-      imageDescription: "Episode 1",
+      image: {
+        src: "https://via.placeholder.com/400x250",
+        alt: "Episode 1",
+      },
       title: "Episode 1: React Server components for 2 hours",
       date: "February 3, 2024",
       description:
@@ -28,20 +30,20 @@ export default component$(() => {
     },
     {
       link: "https://x.com/PatrickJS__/status/1756901484279877820?s=20",
-      image: "https://via.placeholder.com/400x250",
-      imageWidth: 400,
-      imageHeight: 250,
-      imageDescription: "Episode 2",
+      image: {
+        src: "https://via.placeholder.com/400x250",
+        alt: "Episode 2",
+      },
       title: "Episode 2: The future of UI and AI",
       date: "February 11, 2024",
       description: "Dive deep the future of UI with ai",
     },
     {
       link: "https://x.com/patrickjs__/status/1759416279537238451?s=46",
-      image: "https://via.placeholder.com/400x250",
-      imageWidth: 400,
-      imageHeight: 250,
-      imageDescription: "Episode 3",
+      image: {
+        src: "https://via.placeholder.com/400x250",
+        alt: "Episode 3",
+      },
       title: "Episode 3: The shape of build tools to come",
       date: "February 18, 2024",
       description:
@@ -60,15 +62,12 @@ export default component$(() => {
                 <div class="space-y-4">
                   <Link href={episode.link}>
                     <div class="aspect-w-3 aspect-h-2">
-                      <img
-                        width={episode.imageWidth}
-                        height={episode.imageHeight}
-                        class="rounded-lg object-cover shadow-lg"
-                        src={episode.image}
-                        alt={episode.imageDescription}
+                      <EpisodePlaceholder
+                        src={episode.image.src}
+                        alt={episode.image.alt}
                       />
                     </div>
-                    <div class="space-y-1 text-lg font-medium leading-6">
+                    <div class="mt-3 space-y-1 text-lg font-medium leading-6">
                       <h3>{episode.title}</h3>
                       <p class="text-gray-600">{episode.date}</p>
                     </div>

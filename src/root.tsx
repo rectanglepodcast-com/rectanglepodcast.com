@@ -1,3 +1,5 @@
+import { serverComponent$ } from "#_experiments/fake-server-component";
+
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -7,8 +9,6 @@ import {
 import { RouterHead } from "#app/RouterHead";
 
 import "./global.css";
-
-import { serverComponent$ } from "#experiments/fake-server-components";
 
 import { AppProvider } from "#app/global";
 

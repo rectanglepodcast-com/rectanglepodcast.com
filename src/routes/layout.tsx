@@ -1,4 +1,4 @@
-import { serverComponent$ } from "#experiments/fake-server-components";
+import { serverComponent$ } from "#_experiments/fake-server-component";
 
 import { Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
