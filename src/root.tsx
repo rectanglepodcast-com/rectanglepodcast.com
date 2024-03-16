@@ -6,11 +6,11 @@ import {
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 
-import { RouterHead } from "#app/RouterHead";
+import { RouterHead } from "#global/RouterHead";
 
 import "./global.css";
 
-import { AppProvider } from "#app/global";
+import { GlobalProvider } from "#global/context";
 
 export default serverComponent$((props) => {
   /**
@@ -22,7 +22,7 @@ export default serverComponent$((props) => {
 
   return (
     <QwikCityProvider>
-      <AppProvider>
+      <GlobalProvider>
         <head>
           <meta charSet="utf-8" />
           <link rel="manifest" href="/manifest.json" />
@@ -32,7 +32,7 @@ export default serverComponent$((props) => {
           <RouterOutlet />
           <ServiceWorkerRegister />
         </body>
-      </AppProvider>
+      </GlobalProvider>
     </QwikCityProvider>
   );
 });

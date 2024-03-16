@@ -8,16 +8,16 @@ import {
   // type Signal,
 } from "@builder.io/qwik";
 
-export interface AppStore {}
+export interface GlobalStore {}
 
-export const AppContext = createContextId<AppStore>("app-context");
+export const GlobalContext = createContextId<GlobalStore>("global-context");
 
-export const AppProvider = component$(() => {
+export const GlobalProvider = component$(() => {
   // const something = useSignal();
 
   const app = useStore({});
 
-  useContextProvider(AppContext, app);
+  useContextProvider(GlobalContext, app);
 
   return <Slot />;
 });
