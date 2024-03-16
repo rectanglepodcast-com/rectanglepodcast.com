@@ -1,4 +1,4 @@
-import { serverComponent$ } from "#_experiments/fake-server-component";
+// import { serverComponent$ } from "#_experiments/fake-server-component";
 
 import {
   QwikCityProvider,
@@ -10,9 +10,11 @@ import { RouterHead } from "#app/RouterHead";
 
 import "./global.css";
 
+import { component$ } from "@builder.io/qwik";
+
 import { AppProvider } from "#app/global";
 
-export default serverComponent$(async (props) => {
+export default component$((props) => {
   /**
    * The root of a QwikCity site always start with the <QwikCityProvider> component,
    * immediately followed by the document's <head> and <body>.
