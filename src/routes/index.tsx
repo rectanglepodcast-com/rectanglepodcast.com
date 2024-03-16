@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 
 import { Link } from "#components/Link";
 
@@ -15,8 +15,8 @@ export const head: DocumentHead = {
   ],
 };
 
-export default component$(() => {
-  const episodes = [
+export const useEpisodes = routeLoader$(() => {
+  return [
     {
       link: "https://x.com/PatrickJS__/status/1754033753259958276?s=20",
       image: {
@@ -50,6 +50,10 @@ export default component$(() => {
         "In this episode we go over 10 years of javascript build tool history from grunt.js to jsr.",
     },
   ];
+});
+
+export default component$(() => {
+  const episodes = useEpisodes();
 
   return (
     <>
@@ -57,7 +61,7 @@ export default component$(() => {
       <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div class="space-y-12">
           <ul class="space-y-12 sm:grid sm:grid-cols-1 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
-            {episodes.map((episode) => (
+            {episodes.value.map((episode) => (
               <li key={episode.link}>
                 <div class="space-y-4">
                   <Link href={episode.link}>
